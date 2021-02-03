@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Joel Hilton Film Collection</title>
+    <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico" />
+
+</head>
+
+    <body>
+        <menu>
+            <a asp-action="Index">Home</a>
+            <a asp-action="podcasts"> My Podcasts</a>
+            <a asp-action="movieData">Add a movie!</a>
+            <a asp-action="MovieList">Current Movies</a>
+        </menu>
+        <h1>@ViewBag.Title</h1>
+
+        @RenderBody()
+
+        <br /><br />
+        <footer>This worked, Yeet bruh</footer>
+    </body>
+</html>
