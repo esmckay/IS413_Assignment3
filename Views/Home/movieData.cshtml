@@ -1,12 +1,11 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    //sets the title for the page
     ViewBag.Title = "Enter in a new movie:";
 }
 
 @model JoelHilton_Elijah_McKay.Models.MovieResponse
 
+@*form for the move data entry*@
 <form asp-action="movieData" method="post">
     <div>
         <label asp-for="Category">*Category:</label>
@@ -61,6 +60,7 @@
         <textarea asp-for="Notes" maxlength="25"></textarea>
     </div>
 
+    @*submit button and an explanation of the **@
     <button type="submit">Submit your movie</button>
     <p>* - Indicates a required field. If you do not fill out all required fields, your request will be denied and you will be redirected to this page.</p>
 </form>

@@ -1,12 +1,11 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    //sets the title of the page
     ViewBag.Title = "Movie entry of '" + Model.Title + "' is pending.";
 }
 
 @model JoelHilton_Elijah_McKay.Models.MovieResponse
 
+@*Checks to make sure that the movie title is not Independence day and reacts accordingly.*@
 <div>
     <h2>Status:</h2>
     @if (Model.Title == "Independence Day")
@@ -20,6 +19,8 @@
 
 </div>
 
+@*Gives a link to the movie list page*@
 <div>
+    <br /><br />
     Click <a asp-action="MovieList">here</a> to see the movie list.
 </div>
