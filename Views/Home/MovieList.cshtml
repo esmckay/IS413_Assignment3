@@ -3,27 +3,30 @@
     ViewBag.Title = "Movie List";
 }
 
-@model IEnumerable<JoelHilton_Elijah_McKay.Models.MovieResponse>
+@model IEnumerable<MovieResponse>
 
 @*list of movies*@
 <div>
     <h2>Here are the movies in our list:</h2>
+    <br />
 
     <table>
         @*header*@
-        <thead>
-            <tr>
-                <th>Category</th><th>Title</th><th>Year</th><th>Director</th><th>Rating</th>
-                <th>Edited</th><th>Lent to</th><th>Notes</th>
+        <thead class="text-center">
+            <tr class="text-center">
+                <th width="10%">Category</th><th width="10%">Title</th><th width="10%">Year</th>
+                <th width="10%">Director</th><th width="10%">Rating</th>
+                <th width="10%">Edited</th><th width="10%">Lent to</th><th width="10%">Notes</th>
+                <th width="10%"></th><th width="10%"></th>
             </tr>
         </thead>
         <tbody>
             @*for loop that loops through the movie entries as long as the title is not independence day*@
-            @foreach (JoelHilton_Elijah_McKay.Models.MovieResponse x in Model)
+            @foreach (MovieResponse x in Model)
             {
-                @if (x.Title != "Independence Day")
-                {
+              
                     <tr>
+
                         <td>@x.Category</td>
                         <td>@x.Title</td>
                         <td>@x.Year</td>
@@ -32,9 +35,25 @@
                         <td>@x.Edited</td>
                         <td>@x.LentTO</td>
                         <td>@x.Notes</td>
+
+                        @*edit movie function that sends you to a separate form to update the info*@
+                        <td>
+                            <form method="post" asp-action="EditMovie">
+                                <input type="hidden" name="movieid" value="@x.MovieID" />
+                                <button type="submit">Edit</button>
+                            </form>
+                        </td>
+
+                        @*delte movie button that deletes the movie out of the database*@
+                        <td>
+                            <form method="post" asp-action="DeleteMovie">
+                                <input type="hidden" name="movieid" value="@x.MovieID" />
+                                <button type="submit">Delete</button>
+                            </form>
+                        </td>
                     </tr>
 
-                }
+             
 
             }
         </tbody>

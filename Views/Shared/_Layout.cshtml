@@ -1,23 +1,31 @@
-﻿<!DOCTYPE html>
+﻿@*shared layout page for all other pages to inherit from*@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Joel Hilton Film Collection</title>
     <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico" />
-
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
 </head>
 
-    <body>
-        <menu>
-            <a asp-action="Index">Home</a>
-            <a asp-action="podcasts"> My Podcasts</a>
-            <a asp-action="movieData">Add a movie!</a>
-            <a asp-action="MovieList">Current Movies</a>
-        </menu>
-        <h1>@ViewBag.Title</h1>
+    <body class="text-center">
+        <header>
+            <nav class="text-center navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <a class="nav-link" asp-action="Index">Home</a>
+                <a class="nav-link" asp-action="podcasts"> My Podcasts</a>
+                <a class="nav-link" asp-action="movieData">Add a movie!</a>
+                <a class="nav-link" asp-action="MovieList">Current Movies</a>
+            </nav>
+        </header>
+       
+        <h1 class="text-center">@ViewBag.Title</h1>
 
-        @RenderBody()
+        <div class="text-center">
+            @RenderBody()
+        </div>
+       
 
         <br /><br />
-        <footer>This worked, Yeet bruh</footer>
+        <footer class="text-center">Assignment 9</footer>
     </body>
 </html>

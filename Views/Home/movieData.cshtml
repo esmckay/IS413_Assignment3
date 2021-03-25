@@ -32,7 +32,7 @@
     </div>
     <div>
         <label asp-for="Director">*Director:</label>
-        <input asp-for="Director"/>
+        <input asp-for="Director" />
     </div>
     <div>
         <label asp-for="Rating">*Rating:</label>
@@ -46,13 +46,13 @@
     </div>
     <div>
         <label>Edited:</label>
-        <select asp-for="Edited" >
+        <select asp-for="Edited">
             <option value="false">No</option>
             <option value="true">Yes</option>
         </select>
     </div>
     <div>
-        <label  asp-for="LentTO">Lent to:</label>
+        <label asp-for="LentTO">Lent to:</label>
         <input asp-for="LentTO" />
     </div>
     <div>
@@ -63,4 +63,5 @@
     @*submit button and an explanation of the **@
     <button type="submit">Submit your movie</button>
     <p>* - Indicates a required field. If you do not fill out all required fields, your request will be denied and you will be redirected to this page.</p>
+    <div asp-validation-summary="All"></div>
 </form>

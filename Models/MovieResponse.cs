@@ -10,6 +10,10 @@ namespace JoelHilton_Elijah_McKay.Models
 {
     public class MovieResponse
     {
+        [Key]
+        [Required]
+        public int MovieID { get; set; }
+        
         [Required]
         public string Category { get; set; }
 
@@ -27,6 +31,7 @@ namespace JoelHilton_Elijah_McKay.Models
 
         public bool Edited { get; set; }
         public string LentTO { get; set; }
+        [MaxLength(25)]
         public string Notes { get; set; }
 
     }
