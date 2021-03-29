@@ -1,6 +1,6 @@
 ﻿@{
     //sets the title of the page
-    ViewBag.Title = "Movie entry of '" + Model.Title + "' is pending.";
+    ViewBag.Title = "Movie entry of '" + Model.Author + "' is pending.";
 }
 
 @model JoelHilton_Elijah_McKay.Models.MovieResponse
@@ -8,7 +8,7 @@
 @*Checks to make sure that the movie title is not Independence day and reacts accordingly.*@
 <div>
     <h2>Status:</h2>
-    @if (Model.Title == "Independence Day")
+    @if (Model.Author == "Independence Day")
     {
         @:Your movie input is invalid.
     }

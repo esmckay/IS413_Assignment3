@@ -14,9 +14,11 @@
         @*header*@
         <thead class="text-center">
             <tr class="text-center">
-                <th width="10%">Category</th><th width="10%">Title</th><th width="10%">Year</th>
-                <th width="10%">Director</th><th width="10%">Rating</th>
-                <th width="10%">Edited</th><th width="10%">Lent to</th><th width="10%">Notes</th>
+                <th width="10%">Quote</th>
+                <th width="10%">Author</th>
+                <th width="10%">Date</th>
+                <th width="10%">Subject</th>
+                <th width="10%">Citation</th>
                 <th width="10%"></th><th width="10%"></th>
             </tr>
         </thead>
@@ -27,19 +29,17 @@
               
                     <tr>
 
-                        <td>@x.Category</td>
-                        <td>@x.Title</td>
-                        <td>@x.Year</td>
-                        <td>@x.Director</td>
-                        <td>@x.Rating</td>
-                        <td>@x.Edited</td>
-                        <td>@x.LentTO</td>
-                        <td>@x.Notes</td>
+                        <td>@x.Quote</td>
+                        <td>@x.Author</td>
+                        <td>@x.Date</td>
+                        <td>@x.Subject</td>
+                        <td>@x.Citation</td>
+
 
                         @*edit movie function that sends you to a separate form to update the info*@
                         <td>
                             <form method="post" asp-action="EditMovie">
-                                <input type="hidden" name="movieid" value="@x.MovieID" />
+                                <input type="hidden" name="movieid" value="@x.QuoteID" />
                                 <button type="submit">Edit</button>
                             </form>
                         </td>
@@ -47,7 +47,7 @@
                         @*delte movie button that deletes the movie out of the database*@
                         <td>
                             <form method="post" asp-action="DeleteMovie">
-                                <input type="hidden" name="movieid" value="@x.MovieID" />
+                                <input type="hidden" name="movieid" value="@x.QuoteID" />
                                 <button type="submit">Delete</button>
                             </form>
                         </td>

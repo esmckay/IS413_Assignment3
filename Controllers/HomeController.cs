@@ -62,14 +62,14 @@ namespace JoelHilton_Elijah_McKay.Controllers
         //Movie List page
         public IActionResult MovieList()
         {
-            return View(_context.Movies.Where(m => m.Title != "Independence Day"));
+            return View(_context.Movies.Where(m => m.Author != "Independence Day"));
         }
 
         //go to the edit movie page for the movie with the id that we pass in
         [HttpPost]
         public IActionResult EditMovie(int movieid)
         {
-            var EditedMovie = _context.Movies.Where(m => m.MovieID == movieid).FirstOrDefault();
+            var EditedMovie = _context.Movies.Where(m => m.QuoteID == movieid).FirstOrDefault();
 
             return View(EditedMovie);
         }
@@ -79,26 +79,24 @@ namespace JoelHilton_Elijah_McKay.Controllers
         public IActionResult SaveChanges(MovieResponse m, int movieid)
         {
             //match up the movie ids 
-            var UpdatedMovie = _context.Movies.Where(m => m.MovieID == movieid).FirstOrDefault();
+            var UpdatedMovie = _context.Movies.Where(m => m.QuoteID == movieid).FirstOrDefault();
 
             //makes sure the input is valid
             if (ModelState.IsValid)
             {
                 
-                UpdatedMovie.Title = m.Title;
-                UpdatedMovie.Category = m.Category;
-                UpdatedMovie.Year = m.Year;
-                UpdatedMovie.Director = m.Director;
-                UpdatedMovie.Rating = m.Rating;
-                UpdatedMovie.Edited = m.Edited;
-                UpdatedMovie.LentTO = m.LentTO;
-                UpdatedMovie.Notes = m.Notes;
+                UpdatedMovie.Quote = m.Quote;
+                UpdatedMovie.Author = m.Author;
+                UpdatedMovie.Date = m.Date;
+                UpdatedMovie.Subject = m.Subject;
+                UpdatedMovie.Citation = m.Citation;
+
 
                 
                 _context.SaveChanges();
 
                 
-                return View("MovieList", _context.Movies.Where(m => m.Title != "Independence Day"));
+                return View("MovieList", _context.Movies);
             }
 
             
@@ -110,12 +108,12 @@ namespace JoelHilton_Elijah_McKay.Controllers
         public IActionResult DeleteMovie(int movieid)
         {
             
-            var MovieToDelete = _context.Movies.Where(m => m.MovieID == movieid).FirstOrDefault();
+            var MovieToDelete = _context.Movies.Where(m => m.QuoteID == movieid).FirstOrDefault();
 
             _context.Remove(MovieToDelete);
             _context.SaveChanges();
 
-            return View("MovieList", _context.Movies.Where(m => m.Title != "Independence Day"));
+            return View("MovieList", _context.Movies);
         }
 
         public IActionResult Privacy()

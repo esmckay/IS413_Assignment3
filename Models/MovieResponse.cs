@@ -12,27 +12,22 @@ namespace JoelHilton_Elijah_McKay.Models
     {
         [Key]
         [Required]
-        public int MovieID { get; set; }
+        public int QuoteID { get; set; }
         
         [Required]
-        public string Category { get; set; }
+        public string Quote { get; set; }
 
         [Required]
-        public string Title { get; set; }
+        public string Author { get; set; }
 
         [Required]
-        public int Year { get; set; }
+        public DateTime Date { get; set; }
 
-        [Required]
-        public string Director { get; set; }
+        public int Subject { get; set; }
 
-        [Required]
-        public string Rating { get; set; }
 
-        public bool Edited { get; set; }
-        public string LentTO { get; set; }
-        [MaxLength(25)]
-        public string Notes { get; set; }
+        public string Citation { get; set; }
+
 
     }
 }
